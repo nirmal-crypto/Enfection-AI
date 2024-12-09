@@ -54,9 +54,17 @@ const Services = () => {
   const form = useRef();
 
   const handleInputChange = (e) => {
+    const fieldMap = {
+      user_name: 'name',
+      company_name: 'companyName',
+      designation: 'designation',
+      user_email: 'email',
+      contact_number: 'contactNumber'
+    };
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [fieldMap[e.target.name]]: e.target.value
     });
   };
 
@@ -144,7 +152,7 @@ const Services = () => {
             <Form ref={form} onSubmit={handleSubmit}>
               <Input
                 type="text"
-                name="name"
+                name="user_name"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleInputChange}
@@ -152,7 +160,7 @@ const Services = () => {
               />
               <Input
                 type="text"
-                name="companyName"
+                name="company_name"
                 placeholder="Company Name"
                 value={formData.companyName}
                 onChange={handleInputChange}
@@ -168,7 +176,7 @@ const Services = () => {
               />
               <Input
                 type="email"
-                name="email"
+                name="user_email"
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={handleInputChange}
@@ -176,7 +184,7 @@ const Services = () => {
               />
               <Input
                 type="tel"
-                name="contactNumber"
+                name="contact_number"
                 placeholder="Contact Number"
                 value={formData.contactNumber}
                 onChange={handleInputChange}
