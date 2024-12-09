@@ -1,8 +1,8 @@
+import emailjs from '@emailjs/browser';
 import { useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import digitalTwinVideo from '../assets/digital_twin.mp4';
 import ScrollReveal from './ScrollReveal';
-import emailjs from '@emailjs/browser';
 
 const services = [
   {
@@ -75,7 +75,7 @@ const Services = () => {
     emailjs
       .sendForm(
         'service_6tm23wj',
-        'template_b1a12bj',
+        'template_xq67yew',
         form.current,
         {
           publicKey: 'tyHe_0Z8c1vn_0pgk',
