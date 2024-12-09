@@ -87,7 +87,7 @@ const Services = () => {
           });
         },
         (error) => {
-          console.error('FAILED...', error.text);
+          console.error('FAILED....', error.text);
           alert('Failed to send message. Please try again later.');
         }
       )
@@ -144,7 +144,7 @@ const Services = () => {
             <Form ref={form} onSubmit={handleSubmit}>
               <Input
                 type="text"
-                name="user_name"
+                name="name"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleInputChange}
@@ -152,7 +152,7 @@ const Services = () => {
               />
               <Input
                 type="text"
-                name="company_name"
+                name="companyName"
                 placeholder="Company Name"
                 value={formData.companyName}
                 onChange={handleInputChange}
@@ -168,7 +168,7 @@ const Services = () => {
               />
               <Input
                 type="email"
-                name="user_email"
+                name="email"
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={handleInputChange}
@@ -176,7 +176,7 @@ const Services = () => {
               />
               <Input
                 type="tel"
-                name="contact_number"
+                name="contactNumber"
                 placeholder="Contact Number"
                 value={formData.contactNumber}
                 onChange={handleInputChange}
