@@ -116,9 +116,8 @@ const ScrollingBackground = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 0;
-  opacity: 0.1;
-  pointer-events: none;
+  z-index: -1;
+  opacity: 0.2;
 `;
 
 const scrollLeft = keyframes`
@@ -133,24 +132,24 @@ const scrollRight = keyframes`
 
 const ScrollingText = styled.div`
   white-space: nowrap;
-  font-size: 180px;
+  font-size: 200px;
   font-weight: bold;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.2);
   line-height: 1;
   
   &.top {
-    animation: ${scrollLeft} 50s linear infinite;
+    animation: ${scrollLeft} 30s linear infinite;
     margin-top: 20vh;
   }
   
   &.bottom {
-    animation: ${scrollRight} 50s linear infinite;
-    margin-top: 20vh;
+    animation: ${scrollRight} 30s linear infinite;
+    margin-top: 40vh;
   }
 
   @media (max-width: 768px) {
-    font-size: 80px;
+    font-size: 100px;
   }
 `;
 
