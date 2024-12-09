@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import digitalTwinVideo from '../assets/digital_twin.mp4';
 import ScrollReveal from './ScrollReveal';
-import { keyframes } from 'styled-components';
+import emailjs from '@emailjs/browser';
 
 const services = [
   {
@@ -60,29 +60,40 @@ const Services = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setShowModal(false);
-      setShowThankYou(true);
-      setTimeout(() => setShowThankYou(false), 3000);
-      setFormData({
-        name: '',
-        companyName: '',
-        designation: '',
-        email: '',
-        contactNumber: ''
+    emailjs
+      .sendForm(
+        'service_6tm23wj',
+        'template_b1a12bj',
+        form.current,
+        {
+          publicKey: 'tyHe_0Z8c1vn_0pgk',
+        }
+      )
+      .then(
+        () => {
+          setShowModal(false);
+          setShowThankYou(true);
+          setTimeout(() => setShowThankYou(false), 3000);
+          setFormData({
+            name: '',
+            companyName: '',
+            designation: '',
+            email: '',
+            contactNumber: ''
+          });
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          alert('Failed to send message. Please try again later.');
+        }
+      )
+      .finally(() => {
+        setIsSubmitting(false);
       });
-    } catch (error) {
-      console.log(error);
-      alert('Failed to send message. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (
