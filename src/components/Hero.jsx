@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const Hero = () => {
@@ -24,6 +24,14 @@ const Hero = () => {
 
   return (
     <HeroSection $isRevealed={isRevealed}>
+      <ScrollingBackground>
+        <ScrollingText className="top">
+          AI MAKES EVERYTHING EASY &nbsp; AI MAKES EVERYTHING EASY &nbsp;
+        </ScrollingText>
+        <ScrollingText className="bottom">
+          SO WHY NOT YOUR MARKETING JOURNEY &nbsp; SO WHY NOT YOUR MARKETING JOURNEY &nbsp;
+        </ScrollingText>
+      </ScrollingBackground>
       <CenterContent>
         <Title>
           AI solutions for
@@ -98,6 +106,51 @@ const AnimatedWord = styled.div`
   @media (max-width: 768px) {
     font-size: 24px;
     min-height: 30px;
+  }
+`;
+
+const ScrollingBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0.1;
+  pointer-events: none;
+`;
+
+const scrollLeft = keyframes`
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+`;
+
+const scrollRight = keyframes`
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+`;
+
+const ScrollingText = styled.div`
+  white-space: nowrap;
+  font-size: 180px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 1;
+  
+  &.top {
+    animation: ${scrollLeft} 50s linear infinite;
+    margin-top: 20vh;
+  }
+  
+  &.bottom {
+    animation: ${scrollRight} 50s linear infinite;
+    margin-top: 20vh;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 80px;
   }
 `;
 
