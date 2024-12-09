@@ -26,10 +26,10 @@ const Hero = () => {
     <HeroSection $isRevealed={isRevealed}>
       <ScrollingBackground>
         <ScrollingText className="top">
-          AI MAKES EVERYTHING EASY &nbsp; AI MAKES EVERYTHING EASY &nbsp;
+          AI MAKES EVERYTHING EASY &nbsp;&nbsp; AI MAKES EVERYTHING EASY &nbsp;&nbsp;
         </ScrollingText>
         <ScrollingText className="bottom">
-          SO WHY NOT YOUR MARKETING JOURNEY &nbsp; SO WHY NOT YOUR MARKETING JOURNEY &nbsp;
+          SO WHY NOT YOUR MARKETING JOURNEY &nbsp;&nbsp; SO WHY NOT YOUR MARKETING JOURNEY &nbsp;&nbsp;
         </ScrollingText>
       </ScrollingBackground>
       <CenterContent>
@@ -116,8 +116,8 @@ const ScrollingBackground = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: -1;
-  opacity: 0.2;
+  z-index: 0;
+  opacity: 0.3;
 `;
 
 const scrollLeft = keyframes`
@@ -132,24 +132,25 @@ const scrollRight = keyframes`
 
 const ScrollingText = styled.div`
   white-space: nowrap;
-  font-size: 200px;
+  font-size: 250px;
   font-weight: bold;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
   line-height: 1;
+  position: absolute;
   
   &.top {
     animation: ${scrollLeft} 30s linear infinite;
-    margin-top: 20vh;
+    top: 20vh;
   }
   
   &.bottom {
     animation: ${scrollRight} 30s linear infinite;
-    margin-top: 40vh;
+    top: 60vh;
   }
 
   @media (max-width: 768px) {
-    font-size: 100px;
+    font-size: 120px;
   }
 `;
 
